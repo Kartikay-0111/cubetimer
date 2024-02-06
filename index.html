@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cube Timer</title>
+    <link rel="stylesheet" href="cube_timer.css">
+</head>
+
+<body>
+    <header>
+        <div class="scramble">L2 F R' L2 D2 L2 B2 F2 D' R M D B F2 F2 D B R2 L B</div>
+        <!-- <img class="logo" src="cube.png" alt=""> -->
+    </header>
+
+    <main >
+        <div id="timer">0.00</div>
+    </main>
+
+    <aside>
+        <div class="solves"></div>
+    </aside>
+    <footer class="footer">
+        <div>Best Solve : 00:32.67</div>
+        <div> Number of Solves : <span id="nos" >0</span></div>
+        <div>Average : 00:40.56</div>
+        <button onclick="erasesolves()" class="clear" type="button">Clear</button>
+    </footer>
+</body>
+<script src="cubetimer.js"></script>
+
+</html>
