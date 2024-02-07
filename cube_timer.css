@@ -13,6 +13,9 @@
      font-weight: bolder;
      text-align: center;
  }
+ #super-container{
+height: 100vh;
+ }
  .scramble {
      width: 80%;
      margin: auto;
@@ -50,10 +53,12 @@
  .clear {
      height: 30px;
      position: absolute;
+     position: fixed;
      background-color: red;
      border-radius: 5px;
      right: 20px;
      width: 100px;
+     z-index: 3;
  }
  #timer {
      position: absolute;

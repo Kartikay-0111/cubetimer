@@ -60,27 +60,27 @@ document.addEventListener('keydown', function (event) {
     }
 
 });
-// const containerEl = document.getElementById("super-container")
-// containerEl.addEventListener('click', function () {
-//     if (!running) {
-//         if(isReset){
-//             timer.startTimer()
-//             running = true
-//             isReset = false
-//             erase()
-//         } else {
-//             isReset = true
-//             timerEL.textContent = "00"
-//             scrambling()
-//         }
-//     } else {
-//         timer.endTimer()
-//         running = false
-//         arr.push(timerEL.innerText)
-//         solves.innerText = arr.join("\r\n")
-//         nos.innerText = arr.length
-//     }
-// });
+const containerEl = document.getElementById("super-container")
+containerEl.addEventListener('click', function () {
+    if (!running) {
+        if(isReset){
+            timer.startTimer()
+            running = true
+            isReset = false
+            erase()
+        } else {
+            isReset = true
+            timerEL.textContent = "00"
+            scrambling()
+        }
+    } else {
+        timer.endTimer()
+        running = false
+        arr.push(timerEL.innerText)
+        solves.innerText = arr.join("\r\n")
+        nos.innerText = arr.length
+    }
+});
 var x = document.getElementsByClassName('scramble')[0]
 const scramble1 = ["R", "R'", "D2", "F", "L", "B2", "D'", "F'", "L2", "F2"]
 const scramble2 = ["F2", "B", "R2", "B'", "L'", "D", "D2", "M", "L", "D'"]
