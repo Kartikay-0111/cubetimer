@@ -13,9 +13,11 @@
      font-weight: bolder;
      text-align: center;
  }
- #super-container{
-height: 100vh;
+
+ #super-container {
+     height: 100vh;
  }
+
  .scramble {
      width: 80%;
      margin: auto;
@@ -26,14 +28,14 @@ height: 100vh;
  }
 
  .solves {
-    height: 400px;
+     height: 400px;
      color: white;
      width: 100px;
      text-align: center;
      position: absolute;
      top: 7px;
      font-size: larger;
-     overflow-x: hidden; 
+     overflow-x: hidden;
      overflow-y: scroll;
  }
 
@@ -60,8 +62,43 @@ height: 100vh;
      width: 100px;
      z-index: 3;
  }
+
  #timer {
      position: absolute;
      left: 40%;
      top: 40%;
+ }
+
+ @media only screen and (max-width:450px) {
+     .scramble {
+         transform: translateY(500px);
+         font-size: 14px;
+         width: 100%;
+     }
+
+     #timer {
+         left: 25%;
+         font-size: 75px;
+         text-align: center;
+     }
+
+     .solves {
+         height: 350px;
+         width: 80px;
+     }
+
+     .footer {
+         display: flex;
+         flex-direction: column;
+
+     }
+
+     footer div {
+         padding: 5px;
+     }
+
+     .clear {
+         right: 153px;
+         bottom: 140px;
+     }
  }

@@ -63,7 +63,7 @@ document.addEventListener('keydown', function (event) {
 const containerEl = document.getElementById("super-container")
 containerEl.addEventListener('click', function () {
     if (!running) {
-        if(isReset){
+        if (isReset) {
             timer.startTimer()
             running = true
             isReset = false
@@ -87,6 +87,8 @@ const scramble2 = ["F2", "B", "R2", "B'", "L'", "D", "D2", "M", "L", "D'"]
 function scrambling() {
     x.innerText = ""
     for (let i = 0; i < scramble1.length; i++) {
+        var check;
+        check =
         x.innerText = x.innerText + " " + scramble1[parseInt(Math.random() * 10)]
     }
     for (let i = 0; i < scramble2.length; i++) {
@@ -96,10 +98,15 @@ function scrambling() {
 function erase() {
     x.innerText = ""
 }
-function erasesolves(){
-    while(arr.length>0){
+function erasesolves() {
+    while (arr.length > 0) {
         arr.pop();
     }
-    solves.innerText= ""
+    solves.innerText = ""
 }
+var button = document.querySelector(".clear")
+button.addEventListener("click", function (event) {
+    event.stopPropagation()
+})
+
 
