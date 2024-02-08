@@ -70,7 +70,7 @@ containerEl.addEventListener('click', function () {
             erase()
         } else {
             isReset = true
-            timerEL.textContent = "00"
+            timerEL.textContent = "0.00"
             scrambling()
         }
     } else {
