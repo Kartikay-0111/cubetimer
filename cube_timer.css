@@ -69,7 +69,7 @@
      top: 40%;
  }
 
- @media only screen and (max-width:450px) {
+ @media only screen and (max-width:600px) {
      .scramble {
          transform: translateY(500px);
          font-size: 14px;
