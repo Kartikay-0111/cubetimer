@@ -89,7 +89,7 @@ function scrambling() {
     for (let i = 0; i < scramble1.length; i++) {
         var check;
         check =
-        x.innerText = x.innerText + " " + scramble1[parseInt(Math.random() * 10)]
+            x.innerText = x.innerText + " " + scramble1[parseInt(Math.random() * 10)]
     }
     for (let i = 0; i < scramble2.length; i++) {
         x.innerText = x.innerText + " " + scramble2[parseInt(Math.random() * 10)]
