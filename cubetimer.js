@@ -1,6 +1,8 @@
 var running = false
 var isReset = true
 const timerEL = document.getElementById("timer")
+timerEL.style.color = "green"
+var array =[]
 class Timer {
     constructor(timerEl) {
         this.timer = timerEl
@@ -43,16 +45,19 @@ document.addEventListener('keydown', function (event) {
     if (event.code === 'Space' && !running) {
         if (isReset) {
             timer.startTimer()
+            timerEL.style.color = "white"
             running = true
             isReset = false
             erase()
         } else {
             isReset = true
             timerEL.textContent = "0.00"
+            timerEL.style.color = "green"
             scrambling()
         }
     } else if (event.code === 'Space' && running) {
         timer.endTimer()
+        timerEL.style.color ="red"
         running = false
         arr.push(timerEL.innerText)
         solves.innerText = arr.join("\r\n")
@@ -65,16 +70,20 @@ containerEl.addEventListener('click', function () {
     if (!running) {
         if (isReset) {
             timer.startTimer()
+            timerEL.style.color = "white"
             running = true
             isReset = false
             erase()
         } else {
             isReset = true
             timerEL.textContent = "0.00"
+            timerEL.style.color = "green"
             scrambling()
         }
-    } else {
+    } 
+    else {
         timer.endTimer()
+        timerEL.style.color ="red"
         running = false
         arr.push(timerEL.innerText)
         solves.innerText = arr.join("\r\n")
@@ -103,6 +112,7 @@ function erasesolves() {
         arr.pop();
     }
     solves.innerText = ""
+    nos.innerText="0"
 }
 var button = document.querySelector(".clear")
 button.addEventListener("click", function (event) {
