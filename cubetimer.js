@@ -1,8 +1,11 @@
 var running = false
 var isReset = true
 const timerEL = document.getElementById("timer")
+var best = document.getElementById("bestsolve")
+var avg = document.getElementById("avg")
 timerEL.style.color = "green"
-var array =[]
+array = []
+var arr = [];
 class Timer {
     constructor(timerEl) {
         this.timer = timerEl
@@ -39,8 +42,9 @@ class Timer {
 
 const timer = new Timer(timerEL)
 var solves = document.getElementsByClassName("solves")[0]
-var arr = [];
+
 var numofsolves = document.getElementById("nos")
+var res;
 document.addEventListener('keydown', function (event) {
     if (event.code === 'Space' && !running) {
         if (isReset) {
@@ -57,14 +61,41 @@ document.addEventListener('keydown', function (event) {
         }
     } else if (event.code === 'Space' && running) {
         timer.endTimer()
-        timerEL.style.color ="red"
+        timerEL.style.color = "red"
         running = false
         arr.push(timerEL.innerText)
+        var element = arr.at(arr.length - 1)
+
+        for (var i = element.length - 1; i >= 0; i--) {
+            if (element.at(i) == ":") {
+                var fpart = element.substring(0, i)
+                var spart = element.substring(i + 1, element.length)
+                var substr1 = parseFloat(fpart) * 60
+                var substr2 = parseFloat(spart)
+                res = substr1 + substr2;
+                break;
+            }
+            else {
+                res = parseFloat(element)
+            }
+        }
+        array.push(res)
         solves.innerText = arr.join("\r\n")
         nos.innerText = arr.length
+        avg.innerText = average(array)
+        var smallest = Math.min(...array)
+        if (smallest > 60) {
+            var min = parseInt(smallest / 60);
+            smallest = smallest - min * 60;
+            var bestf = min + ":" + (smallest).toFixed(2);
+            best.innerText = bestf
+        }
+        else {
+            best.innerText = Math.min(...array).toFixed(2)
+        }
     }
-
 });
+
 const containerEl = document.getElementById("super-container")
 containerEl.addEventListener('click', function () {
     if (!running) {
@@ -80,16 +111,44 @@ containerEl.addEventListener('click', function () {
             timerEL.style.color = "green"
             scrambling()
         }
-    } 
+    }
     else {
         timer.endTimer()
-        timerEL.style.color ="red"
+        timerEL.style.color = "red"
         running = false
         arr.push(timerEL.innerText)
+        var element = arr.at(arr.length - 1)
+
+        for (var i = element.length - 1; i >= 0; i--) {
+            if (element.at(i) == ":") {
+                var fpart = element.substring(0, i)
+                var spart = element.substring(i + 1, element.length)
+                var substr1 = parseFloat(fpart) * 60
+                var substr2 = parseFloat(spart)
+                res = substr1 + substr2;
+                break;
+            }
+            else {
+                res = parseFloat(element)
+            }
+        }
+        array.push(res)
         solves.innerText = arr.join("\r\n")
         nos.innerText = arr.length
+        avg.innerText = average(array)
+        var smallest = Math.min(...array)
+        if (smallest > 60) {
+            var min = parseInt(smallest / 60);
+            smallest = smallest - min * 60;
+            var bestf = min + ":" + (smallest).toFixed(2);
+            best.innerText = bestf
+        }
+        else {
+            best.innerText = Math.min(...array).toFixed(2)
+        }
     }
 });
+
 var x = document.getElementsByClassName('scramble')[0]
 const scramble1 = ["R", "R'", "D2", "F", "L", "B2", "D'", "F'", "L2", "F2"]
 const scramble2 = ["F2", "B", "R2", "B'", "L'", "D", "D2", "M", "L", "D'"]
@@ -111,12 +170,38 @@ function erasesolves() {
     while (arr.length > 0) {
         arr.pop();
     }
+    while (array.length > 0) {
+        array.pop();
+    }
     solves.innerText = ""
-    nos.innerText="0"
+    nos.innerText = "0"
+    timerEL.textContent = "0.00"
+    timerEL.style.color = "green"
+    avg.innerText = "00"
+    best.innerText = "00"
+
 }
 var button = document.querySelector(".clear")
 button.addEventListener("click", function (event) {
     event.stopPropagation()
 })
+var avg1
+function average(vector) {
+    var sum = 0
+    vector.forEach(element => {
+        sum += element
+    });
+    avg1 = (sum / array.length)
+    if (avg1 > 60) {
+        var min = parseInt(avg1 / 60);
+        avg1 = avg1 - min * 60;
+        var avgf = min + ":" + (avg1).toFixed(2);
+        return avgf;
+    }
+    else {
+        return avg1.toFixed(2);
+    }
+}
+
 
 
