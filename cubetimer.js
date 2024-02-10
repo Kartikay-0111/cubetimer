@@ -202,6 +202,3 @@ function average(vector) {
         return avg1.toFixed(2);
     }
 }
-
-
-
