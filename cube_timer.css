@@ -1,65 +1,106 @@
- * {
-     background-color: rgb(20, 19, 19);
-     margin: 0px;
-     padding: 0px;
-     box-sizing: border-box;
-     color: white;
- }
+* {
+    background-color: rgb(38, 36, 36);
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    color: white;
+}
 
- main {
-     color: white;
-     font-family: 'Courier New', Courier, monospace;
-     font-size: 100px;
-     font-weight: bolder;
-     text-align: center;
- }
+main {
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 100px;
+    font-weight: bolder;
+    text-align: center;
+}
 
- .scramble {
-     width: 80%;
-     margin: auto;
-     height: 50px;
-     font-size: 40px;
-     text-align: center;
-     color: aqua;
- }
+#super-container {
+    height: 100vh;
+}
 
- .solves {
+.scramble {
+    width: 80%;
+    margin: auto;
+    height: 50px;
+    font-size: 40px;
+    text-align: center;
+    color: aqua;
+}
+
+.solves {
     height: 400px;
-     color: white;
-     width: 100px;
-     text-align: center;
-     position: absolute;
-     top: 7px;
-     font-size: larger;
-     overflow-x: hidden; 
-     overflow-y: scroll;
-     overflow-wrap: break-word;
- }
+    color: white;
+    width: 100px;
+    text-align: center;
+    position: absolute;
+    top: 7px;
+    font-size: larger;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    
+}
 
- footer {
-     width: 100%;
-     position: absolute;
-     bottom: 30px;
-     font-size: 20px;
- }
+footer {
+    width: 100%;
+    position: absolute;
+    bottom: 30px;
+    font-size: 20px;
+}
 
- .footer {
-     display: grid;
-     grid-template-columns: auto auto auto auto;
-     text-align: center;
- }
+.footer {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    text-align: center;
+}
 
- .clear {
-     height: 30px;
-     position: absolute;
-     background-color: red;
-     border-radius: 5px;
-     right: 20px;
-     width: 100px;
- }
+.clear {
+    height: 30px;
+    position: absolute;
+    position: fixed;
+    background-color: red;
+    border-radius: 5px;
+    right: 20px;
+    width: 100px;
+    z-index: 3;
+}
 
- #timer {
-     position: absolute;
-     left: 40%;
-     top: 40%;
- }
+#timer {
+    position: absolute;
+    left: 40%;
+    top: 40%;
+}
+
+@media only screen and (max-width:600px) {
+    .scramble {
+        transform: translateY(475px);
+        font-size: 14px;
+        width: 100%;
+        text-align: center;
+    }
+
+    #timer {
+       left: 22%;
+        font-size: 75px;
+    }
+
+    .solves {
+        height: 350px;
+        width: 80px;
+    }
+
+    .footer {
+        display: flex;
+        flex-direction: column;
+    }
+
+    footer div {
+        padding: 5px;
+    }
+
+    .clear {
+       right: calc(50% - 50px);
+        bottom: 140px;
+        position: absolute;
+    }
+    
+}
